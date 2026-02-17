@@ -14,6 +14,7 @@ public class EnemyController2w: MonoBehaviour
     public int knightBossDamage = 40;
     public Slider PHP;
     public static int KnightBoss_HP = 500;
+    private float distanceToPlayer;
 
     // Новые переменные для атаки
     private bool canMove = true;
@@ -72,7 +73,7 @@ public class EnemyController2w: MonoBehaviour
             }
         }
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         // Если атакуем, ничего не делаем
         if (isAttacking)
@@ -190,8 +191,12 @@ public class EnemyController2w: MonoBehaviour
         isInRecovery = true;
         currentIdleTimer = idleRecoveryTime;
 
-        PlayaerControllerSec.PLAYER_HP -= knightBossDamage;
-        PHP.value = PlayaerControllerSec.PLAYER_HP;
+        if (distanceToPlayer <= attackRange)
+        {
+            PlayaerControllerSec.PLAYER_HP -= knightBossDamage;
+            PHP.value = PlayaerControllerSec.PLAYER_HP;
+        }
+        
 
 
 
