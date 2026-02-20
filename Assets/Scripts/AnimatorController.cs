@@ -9,7 +9,7 @@ public class AnimatorController : MonoBehaviour
     public Animator playerAnimator;
     private int playerDamage = 40;
     public Slider Knight_BossHP;
-    [SerializeField] private float attackRange = 10f;
+    private float attackRange = 20f;
     
     public Transform Boss;
 
@@ -24,13 +24,13 @@ public class AnimatorController : MonoBehaviour
         }else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             playerAnimator.SetTrigger("Attack");
-            if (distanceToBoss <= attackRange )
+            if (distanceToBoss <= attackRange)
             {
                 EnemyController2w.KnightBoss_HP -= playerDamage;
                 Knight_BossHP.value = EnemyController2w.KnightBoss_HP;
                 return;
             }
-            
+
         }
         else
         {

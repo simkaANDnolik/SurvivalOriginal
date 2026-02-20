@@ -24,7 +24,7 @@ public class EnemyController2w: MonoBehaviour
 
     // Параметры для настройки
     [SerializeField] private float detectionRange = 40f;
-    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackRange = 5f;
     [SerializeField] private float attackCooldownTime = 3f; // Время между атаками
     [SerializeField] private float moveSpeedNormal = 3.5f;
     [SerializeField] private float moveSpeedAttack = 1.5f; // Скорость во время атаки
