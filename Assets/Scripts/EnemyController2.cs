@@ -14,6 +14,7 @@ public class EnemyController2w: MonoBehaviour
     public int knightBossDamage = 40;
     public Slider PHP;
     public static int KnightBoss_HP = 500;
+    public static bool isAttack = false;
     private float distanceToPlayer;
 
     // Новые переменные для атаки
@@ -154,6 +155,7 @@ public class EnemyController2w: MonoBehaviour
     {
         isAttacking = true;
         canMove = false;
+        isAttack = true;
 
         // Останавливаемся
         agent.SetDestination(transform.position);
@@ -174,6 +176,7 @@ public class EnemyController2w: MonoBehaviour
     {
         isAttacking = false;
         canMove = true;
+        isAttack = false;
 
         // Устанавливаем кд перед следующей атакой
         attackCooldown = attackCooldownTime;
