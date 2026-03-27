@@ -193,12 +193,17 @@ public class EnemyController2w: MonoBehaviour
         // ¬ключаем восстановительный период в idle
         isInRecovery = true;
         currentIdleTimer = idleRecoveryTime;
-
-        if (distanceToPlayer <= attackRange)
+        if (DestroyWalls.invincible == false)
         {
-            PlayaerControllerSec.PLAYER_HP -= knightBossDamage;
-            PHP.value = PlayaerControllerSec.PLAYER_HP;
+            if (distanceToPlayer <= attackRange)
+            {
+                Debug.Log(" invincible: " + DestroyWalls.invincible);
+                PlayaerControllerSec.PLAYER_HP -= knightBossDamage;
+                PHP.value = PlayaerControllerSec.PLAYER_HP;
+                
+            }
         }
+        
         
 
 
